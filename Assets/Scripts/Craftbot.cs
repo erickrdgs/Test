@@ -34,8 +34,14 @@ public class Craftbot : MonoBehaviour
     #region MONOBEHAVIOUR METHODS
     void Awake()
     {
-        if (instance == null) instance = this;
-        else if (instance != this) Destroy(gameObject);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start ()
@@ -63,7 +69,6 @@ public class Craftbot : MonoBehaviour
         ConstrainMovement();
     }
 
-    // Physics only
     void FixedUpdate()
     {
         body.AddForce(movement * speed);
@@ -75,8 +80,9 @@ public class Craftbot : MonoBehaviour
         }
     }
     #endregion
-    
+
     #region CUSTOM METHODS
+    // Self-explanatory (duh)
     void FaceMoveDirection ()
     {
         if (movement != Vector3.zero)
